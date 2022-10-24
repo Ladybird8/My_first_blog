@@ -1,3 +1,15 @@
+<header>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</header>
+
+{% for post in posts %}
+    <article>
+        <time>published: {{ post.published_date }}</time>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </article>
+{% endfor %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,6 +32,7 @@
         <ul><li>Oli</li><li>Sal</li><li>Mantega</li></ul>
         
         <strong>Preparació</strong>
+        {% for post in posts %}
         <article>
             <p>Per fer la brandada: primerament, pelem els alls i els posem a confitar amb oli d’oliva a foc baix. 
             <br>Quan aquests comencin a enrossir-se, hi posem el bacallà escorregut. 
@@ -29,7 +42,7 @@
 
             <time>publicat: 24.10.2022, 11:49h</time>
         </article>
-
+        {% endfor %}
 
         <title>Django Girls blog</title>
     </head>
@@ -38,16 +51,20 @@
             <h1><a href="/">Django Girls Blog</a></h1>
         </header>
 
+        {% for post in posts %}
         <article>
             <time>published: 14.06.2014, 12:14</time>
             <h2><a href="">My first post</a></h2>
             <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
         </article>
+        {% endfor %}
 
+        {% for post in posts %}
         <article>
             <time>published: 14.06.2014, 12:14</time>
             <h2><a href="">My second post</a></h2>
             <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
         </article>
+        {% endfor %}
     </body>
 </html>
